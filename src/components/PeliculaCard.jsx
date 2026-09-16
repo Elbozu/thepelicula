@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import FavoriteButton from "./FavoriteButton";
 
 function PeliculaCard({ pelicula }) {
@@ -16,8 +17,11 @@ function PeliculaCard({ pelicula }) {
 
    return (
     <div className="movie-card">
+        <Link to={`/detalle/${pelicula.id}`} style={{ textDecoration: "none", color: "inherit" }}>
         <img src={posterUrl} alt={pelicula.title} />
         <h3>{pelicula.title}</h3>
+        </Link>
+        
         <p>{pelicula.release_date ? pelicula.release_date.slice(0, 4) : "Sin fecha"}</p>
          <FavoriteButton esFavorita={esFavorita} onToggle={handleToggle} />
     </div>
