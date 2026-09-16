@@ -2,7 +2,6 @@ import { useParams, Link } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 import { API_KEY, API_BASE_URL } from "../utils/constants";
 
-const API_KEY = "da258558ecf5f3e155efdb439c939a24";
 
 function DetallePelicula(){
     const {id} = useParams();
