@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useFavoritos } from "../context/FavoritosContext";
 import FavoriteButton from "./FavoriteButton";
 
 function PeliculaCard({ pelicula }) {
-    const [esFavorita, setEsFavorita] = useState(false);
+    const { toggleFavorito, esFavorito } = useFavoritos();
+
+    const favorita = esFavorito(pelicula.id);
 
 
     const posterUrl = pelicula.poster_path
@@ -11,19 +14,16 @@ function PeliculaCard({ pelicula }) {
     : "https://via.placeholder.com/300x450?text=Sin+imagen";
 
 
- function handleToggle() {
-    setEsFavorita(!esFavorita);
-  }
-
    return (
     <div className="movie-card">
         <Link to={`/detalle/${pelicula.id}`} style={{ textDecoration: "none", color: "inherit" }}>
         <img src={posterUrl} alt={pelicula.title} />
         <h3>{pelicula.title}</h3>
         </Link>
-        
+
         <p>{pelicula.release_date ? pelicula.release_date.slice(0, 4) : "Sin fecha"}</p>
-         <FavoriteButton esFavorita={esFavorita} onToggle={handleToggle} />
+
+         <FavoriteButton esFavorita={favorita} onToggle={() => toggleFavorito(pelicula)}/>
     </div>
    );
 }

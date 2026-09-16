@@ -1,6 +1,8 @@
 import { NavLink } from "react-router-dom";
+import { useFavoritos } from "../context/FavoritosContext";
 
 function Navbar() {
+    const { favoritos } = useFavoritos(); 
     return (
         <nav className="navbar">
             <h1 className="navbar-logo">ThePelicula</h1>
@@ -12,7 +14,7 @@ function Navbar() {
         </li>
         <li>
           <NavLink to="/favoritos" className={({ isActive }) => (isActive ? "nav-link activa" : "nav-link")}>
-            Favoritos
+          Favoritos {favoritos.length > 0 && `(${favoritos.length})`}
           </NavLink>
         </li>
       </ul>

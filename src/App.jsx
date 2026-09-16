@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { FavoritosProvider } from "./context/FavoritosContext";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Favoritos from "./pages/Favoritos";
@@ -8,6 +9,8 @@ import NotFound from "./pages/Error404";
 function App() {
   return (
     <BrowserRouter>
+
+    <FavoritosProvider>
     <div className="app-container">
       <Navbar />
       <main>
@@ -19,6 +22,7 @@ function App() {
         </Routes>
       </main>
     </div>
+    </FavoritosProvider>
     </BrowserRouter>
   );
 }

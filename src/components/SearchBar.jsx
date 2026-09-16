@@ -3,9 +3,14 @@ import { useState } from "react";
 function SearchBar({ onSearch}) {
     const [texto, setTexto] = useState("");
 
+    function handleChange(e){
+     const nuevoTexto = e.target.value;
+     setTexto(nuevoTexto);
+     onSearch(nuevoTexto);
+}
+
     function handleSubmit(e) {
         e.preventDefault();
-        onSearch(texto);
     }
 
    return (
@@ -14,7 +19,7 @@ function SearchBar({ onSearch}) {
         type="text"
         placeholder="Buscar pelicula..."
         value={texto}
-        onChange={(e) => setTexto(e.target.value)}/>
+        onChange={handleChange}/>
        <button type="submit">Buscar</button> 
     </form>
    );
