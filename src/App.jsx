@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Favoritos from "./pages/Favoritos";
 import DetallePelicula from "./pages/DetallePelicula";
 import NotFound from "./pages/Error404";
+import "./App.css";
 
 function App() {
   return (

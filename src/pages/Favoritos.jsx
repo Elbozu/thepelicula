@@ -3,7 +3,7 @@ import PeliculaList from "../components/PeliculaList";
 
 function Favoritos() {
 
-    const { favoritos, limpiarFavoritos } = useFavoritos();
+    const { favoritos } = useFavoritos();
     return (
         <div className="favoritos-page">
             <h2>Mis peliculas Favoritas</h2>

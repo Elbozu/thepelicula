@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useFavoritos } from "../context/FavoritosContext";
 import FavoriteButton from "./FavoriteButton";

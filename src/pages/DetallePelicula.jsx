@@ -1,12 +1,14 @@
 import { useParams, Link } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
+import { API_KEY, API_BASE_URL } from "../utils/constants";
 
 const API_KEY = "da258558ecf5f3e155efdb439c939a24";
 
 function DetallePelicula(){
     const {id} = useParams();
 
-      const API_URL = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=es-ES`;
+  
+  const API_URL = `${API_BASE_URL}/movie/${id}?api_key=${API_KEY}&language=es-ES`;
   const { data: pelicula, cargando, error } = useFetch(API_URL);
 
   if (cargando) return <p className="mensaje-estado">Cargando</p>;
